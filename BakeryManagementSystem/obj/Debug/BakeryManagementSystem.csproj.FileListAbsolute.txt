@@ -1,0 +1,17 @@
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\bin\Debug\BakeryManagementSystem.exe.config
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\bin\Debug\BakeryManagementSystem.exe
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\bin\Debug\BakeryManagementSystem.pdb
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.csproj.AssemblyReference.cache
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.csproj.SuggestedBindingRedirects.cache
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.Home.resources
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.Properties.Resources.resources
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.csproj.GenerateResource.cache
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.exe
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.pdb
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.Product.resources
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.Customer.resources
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.Login.resources
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.Forms.Stock.resources
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.Forms.Sales.resources
+C:\Users\L.D.M.Kumara\source\repos\BakeryManagementSystem\BakeryManagementSystem\obj\Debug\BakeryManagementSystem.Forms.Order.resources
