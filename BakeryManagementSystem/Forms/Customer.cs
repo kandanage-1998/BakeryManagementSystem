@@ -10,6 +10,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BakeryManagementSystem
 {
@@ -22,12 +23,12 @@ namespace BakeryManagementSystem
             ordersFilter = new OrdersFilter();
         }
 
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\3)Third Year\ADBMS\db\BakeryManagementSystem.mdf"";Integrated Security=True;Connect Timeout=30");
-
+        SqlConnection conn = new SqlConnection(@"Data Source=DILSHAN-ROG\MSSQLSERVER01;Initial Catalog=BakeryManagementSystem;User ID=root1;Password=1234");
 
         private void Customer_Load(object sender, EventArgs e)
         {
             this.Refresh();
+            SqlConnection conn = new SqlConnection(@"Data Source=DILSHAN-ROG\MSSQLSERVER01;Initial Catalog=BakeryManagementSystem;User ID=root1;Password=1234");
             conn.Open();
             string query = "select * from customerDetails";
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -48,7 +49,7 @@ namespace BakeryManagementSystem
 
         private void LoadTheme()
         {
-            foreach (Control btns in this.Controls)
+            /*foreach (Control btns in this.Controls)
             {
                 if (btns.GetType() == typeof(Button))
                 {
@@ -57,7 +58,7 @@ namespace BakeryManagementSystem
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
-            }
+            }*/
             lblAddress.ForeColor = ThemeColor.PrimaryColor;
             lblId.ForeColor = ThemeColor.PrimaryColor;
             lblPno.ForeColor = ThemeColor.PrimaryColor;
@@ -72,15 +73,15 @@ namespace BakeryManagementSystem
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
+            String name = txtName.Text;
+            String address = txtAddress.Text;
+            int mPhone = int.Parse(txtPno.Text);
+            
+            string query = "insert into CustomerDetails values('" + name + "','" + address + "','" + mPhone + "')";
+            SqlCommand cmd = new SqlCommand(query, conn);
             try
             {
-                string name = txtName.Text;
-                string address = txtAddress.Text;
-                int mPhone = int.Parse(txtPno.Text);
-
-                string query = "insert into customerDetails values('" + name + "','" + mPhone + "','" + address + "')";
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Record added Successfully!", "Registered Customer!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -101,6 +102,38 @@ namespace BakeryManagementSystem
 
         private void cmbId_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string no = cmbId.Text;
+
+            if (no != "New Register")
+            {
+                conn.Open();
+                string query = "select * from CustomerDetails where Id = '" + no + "'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader row = cmd.ExecuteReader();
+                while (row.Read())
+                {
+                    txtName.Text = row[1].ToString();
+                    txtAddress.Text = row[2].ToString();
+                    txtPno.Text = row[3].ToString();
+                    
+                }
+                conn.Close();
+
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = true;
+                btnDelete.Enabled = true;
+            }
+            else
+            {
+                cmbId.Text = "";
+                txtName.Text = "";
+                txtAddress.Text = "";
+                txtPno.Text = "";
+
+                btnAdd.Enabled = true;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+            }
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
@@ -111,6 +144,67 @@ namespace BakeryManagementSystem
             DataTable orders = ordersFilter.GetOrdersByDateRange(startDate, endDate);
 
             dataGridView1.DataSource = orders;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(@"Data Source=DILSHAN-ROG\MSSQLSERVER01;Initial Catalog=BakeryManagementSystem;User ID=root1;Password=1234");
+
+            string Query = "SELECT * FROM CustomerDetails";
+
+            SqlDataAdapter adapter = new SqlDataAdapter(Query, conn);
+            DataSet ds = new DataSet();
+
+            adapter.Fill(ds, "customerDetails");
+            dataGridView1.DataSource = ds.Tables["customerDetails"];
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure, Do you really want to delete this record?", "Delete Customer!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                string no = cmbId.Text;
+
+                string query = "delete from CustomerDetails where Id = '" + no + "'";
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Record Deleted Successfully!", "Deleted Customer!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Refresh();
+            }
+            else if (result == DialogResult.No)
+            {
+                this.Close();
+            }
+            
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string no = cmbId.Text;
+
+            if (no != "New Register")
+            {
+
+                string Name = txtName.Text;
+                string Address = txtAddress.Text;
+                int mPhone = int.Parse(txtPno.Text);
+
+                string query = "Update CustomerDetails set Name='" + Name + "',Address='" + Address + "',Pno='" + mPhone + "' where Id = '" + no + "'";
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Record updated Successfully!", "updated Customer!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Refresh();
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

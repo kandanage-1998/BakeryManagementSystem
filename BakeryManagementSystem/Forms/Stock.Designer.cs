@@ -40,6 +40,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblSelect = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -48,6 +49,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.numericUpDown1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -69,6 +71,7 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(261, 30);
             this.numericUpDown1.TabIndex = 2;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 
@@ -104,19 +107,21 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(950, 101);
+            this.btnAdd.Location = new System.Drawing.Point(1010, 100);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(115, 38);
+            this.btnAdd.Size = new System.Drawing.Size(97, 38);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add Item";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(592, 103);
+            this.textBox3.Location = new System.Drawing.Point(778, 102);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(245, 30);
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(191, 30);
             this.textBox3.TabIndex = 3;
             // 
             // textBox1
@@ -124,6 +129,7 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(18, 103);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(245, 30);
             this.textBox1.TabIndex = 1;
             // 
@@ -136,6 +142,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1119, 65);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // comboBox1
             // 
@@ -145,6 +152,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(411, 33);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblSelect
             // 
@@ -160,12 +168,24 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Highlight;
             this.dataGridView1.Location = new System.Drawing.Point(0, 150);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1119, 503);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(592, 103);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(154, 29);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Calculate Total";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Stock
             // 
@@ -201,5 +221,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblSelect;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
     }
 }
