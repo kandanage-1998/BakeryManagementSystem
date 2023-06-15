@@ -86,6 +86,7 @@ namespace BakeryManagementSystem.Forms
 
         }
 
+<<<<<<< Updated upstream
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -180,6 +181,11 @@ namespace BakeryManagementSystem.Forms
             }
 
             textBox3.Text = totalPrice.ToString();
+=======
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> Stashed changes
         }
     }
 }

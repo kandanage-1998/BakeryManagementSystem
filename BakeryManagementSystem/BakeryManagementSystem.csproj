@@ -108,8 +108,9 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Product.resx">
+    <EmbeddedResource Include="..\..\..\..\Downloads\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
+      <Link>Forms\Product.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
